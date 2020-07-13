@@ -1,0 +1,138 @@
+info:
+  description: ''
+  title: ''
+  version: ''
+openapi: 3.0.0
+paths:
+  /django/jobs/:
+    get:
+      operationId: jobs_list
+      parameters:
+      - in: query
+        name: page
+        schema:
+          description: A page number within the paginated result set.
+          title: Page
+          type: integer
+      tags:
+      - jobs
+    post:
+      operationId: jobs_create
+      tags:
+      - jobs
+  /django/jobs/{id}/:
+    delete:
+      operationId: jobs_delete
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this job.
+          title: ID
+          type: integer
+      tags:
+      - jobs
+    get:
+      operationId: jobs_read
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this job.
+          title: ID
+          type: integer
+      tags:
+      - jobs
+    patch:
+      operationId: jobs_partial_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this job.
+          title: ID
+          type: integer
+      tags:
+      - jobs
+    put:
+      operationId: jobs_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this job.
+          title: ID
+          type: integer
+      tags:
+      - jobs
+  /django/tasks/:
+    get:
+      operationId: tasks_list
+      parameters:
+      - in: query
+        name: page
+        schema:
+          description: A page number within the paginated result set.
+          title: Page
+          type: integer
+      tags:
+      - tasks
+    post:
+      operationId: tasks_create
+      tags:
+      - tasks
+  /django/tasks/{id}/:
+    delete:
+      operationId: tasks_delete
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this task.
+          title: ID
+          type: integer
+      tags:
+      - tasks
+    get:
+      operationId: tasks_read
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this task.
+          title: ID
+          type: integer
+      tags:
+      - tasks
+    patch:
+      operationId: tasks_partial_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this task.
+          title: ID
+          type: integer
+      tags:
+      - tasks
+    put:
+      operationId: tasks_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this task.
+          title: ID
+          type: integer
+      tags:
+      - tasks
+servers:
+- url: ''
