@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    container_name: app-rest
+    build: .
+    hostname: localhost
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/apprest
+    ports:
+      - "8000:8000"
