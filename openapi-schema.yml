@@ -1,0 +1,498 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /:
+    get:
+      operationId: listSwaggerSchemas
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/coreapi+json:
+              schema: &id001
+                type: array
+                items: {}
+            application/openapi+json:
+              schema: *id001
+            text/html:
+              schema: *id001
+          description: ''
+  /tasks/:
+    get:
+      operationId: listTasks
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    name:
+                      type: string
+                      maxLength: 255
+                    job:
+                      type: string
+                    created_at:
+                      type: string
+                      format: date-time
+                      readOnly: true
+                    deleted_at:
+                      type: string
+                      format: date-time
+                      readOnly: true
+                  required:
+                  - job
+          description: ''
+    post:
+      operationId: createTask
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: &id002
+              properties:
+                name:
+                  type: string
+                  maxLength: 255
+                job:
+                  type: string
+              required:
+              - job
+          application/x-www-form-urlencoded:
+            schema: *id002
+          multipart/form-data:
+            schema: *id002
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  name:
+                    type: string
+                    maxLength: 255
+                  job:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                    readOnly: true
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    readOnly: true
+                required:
+                - job
+          description: ''
+  /tasks/{id}/:
+    get:
+      operationId: retrieveTask
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this task.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  name:
+                    type: string
+                    maxLength: 255
+                  job:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                    readOnly: true
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    readOnly: true
+                required:
+                - job
+          description: ''
+    put:
+      operationId: updateTask
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this task.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id003
+              properties:
+                name:
+                  type: string
+                  maxLength: 255
+                job:
+                  type: string
+              required:
+              - job
+          application/x-www-form-urlencoded:
+            schema: *id003
+          multipart/form-data:
+            schema: *id003
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  name:
+                    type: string
+                    maxLength: 255
+                  job:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                    readOnly: true
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    readOnly: true
+                required:
+                - job
+          description: ''
+    patch:
+      operationId: partial_updateTask
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this task.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id004
+              properties:
+                name:
+                  type: string
+                  maxLength: 255
+                job:
+                  type: string
+          application/x-www-form-urlencoded:
+            schema: *id004
+          multipart/form-data:
+            schema: *id004
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  name:
+                    type: string
+                    maxLength: 255
+                  job:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                    readOnly: true
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    readOnly: true
+                required:
+                - job
+          description: ''
+    delete:
+      operationId: destroyTask
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this task.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /jobs/:
+    get:
+      operationId: listJobs
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    code:
+                      type: string
+                      readOnly: true
+                    name:
+                      type: string
+                      maxLength: 255
+                    address:
+                      type: string
+                      maxLength: 255
+                    formated_state:
+                      type: string
+                      readOnly: true
+                    number:
+                      type: string
+                      maxLength: 255
+                    tasks:
+                      type: array
+                      items:
+                        type: string
+                  required:
+                  - tasks
+          description: ''
+    post:
+      operationId: createJob
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: &id005
+              properties:
+                name:
+                  type: string
+                  maxLength: 255
+                address:
+                  type: string
+                  maxLength: 255
+                number:
+                  type: string
+                  maxLength: 255
+                tasks:
+                  type: array
+                  items:
+                    type: string
+              required:
+              - tasks
+          application/x-www-form-urlencoded:
+            schema: *id005
+          multipart/form-data:
+            schema: *id005
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    type: string
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 255
+                  address:
+                    type: string
+                    maxLength: 255
+                  formated_state:
+                    type: string
+                    readOnly: true
+                  number:
+                    type: string
+                    maxLength: 255
+                  tasks:
+                    type: array
+                    items:
+                      type: string
+                required:
+                - tasks
+          description: ''
+  /jobs/{id}/:
+    get:
+      operationId: retrieveJob
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this job.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    type: string
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 255
+                  address:
+                    type: string
+                    maxLength: 255
+                  formated_state:
+                    type: string
+                    readOnly: true
+                  number:
+                    type: string
+                    maxLength: 255
+                  tasks:
+                    type: array
+                    items:
+                      type: string
+                required:
+                - tasks
+          description: ''
+    put:
+      operationId: updateJob
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this job.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id006
+              properties:
+                name:
+                  type: string
+                  maxLength: 255
+                address:
+                  type: string
+                  maxLength: 255
+                number:
+                  type: string
+                  maxLength: 255
+                tasks:
+                  type: array
+                  items:
+                    type: string
+              required:
+              - tasks
+          application/x-www-form-urlencoded:
+            schema: *id006
+          multipart/form-data:
+            schema: *id006
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    type: string
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 255
+                  address:
+                    type: string
+                    maxLength: 255
+                  formated_state:
+                    type: string
+                    readOnly: true
+                  number:
+                    type: string
+                    maxLength: 255
+                  tasks:
+                    type: array
+                    items:
+                      type: string
+                required:
+                - tasks
+          description: ''
+    patch:
+      operationId: partial_updateJob
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this job.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id007
+              properties:
+                name:
+                  type: string
+                  maxLength: 255
+                address:
+                  type: string
+                  maxLength: 255
+                number:
+                  type: string
+                  maxLength: 255
+                tasks:
+                  type: array
+                  items:
+                    type: string
+          application/x-www-form-urlencoded:
+            schema: *id007
+          multipart/form-data:
+            schema: *id007
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    type: string
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 255
+                  address:
+                    type: string
+                    maxLength: 255
+                  formated_state:
+                    type: string
+                    readOnly: true
+                  number:
+                    type: string
+                    maxLength: 255
+                  tasks:
+                    type: array
+                    items:
+                      type: string
+                required:
+                - tasks
+          description: ''
+    delete:
+      operationId: destroyJob
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this job.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
