@@ -5,6 +5,6 @@ WORKDIR /apprest
 COPY . .
 ADD . /apprest/
 RUN pip install --upgrade pip
-RUN pip install -r /apprest/requirements.txt
+RUN pip install -r /apprest/requirements-docker.txt
 RUN python manage.py migrate
 RUN python manage.py seed_fake_data
