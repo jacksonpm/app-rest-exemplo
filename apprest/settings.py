@@ -126,5 +126,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 SWAGGER_SETTINGS = {
+    'LOGIN_URL': '/api-auth/login/',
+    'LOGOUT_URL': '/api-auth/logout/',
     'VALIDATOR_URL': 'http://localhost:8000',
 }

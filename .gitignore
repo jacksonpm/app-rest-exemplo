@@ -3,3 +3,5 @@ venv
 .docker
 db.sqlite3
 *.pyc
+__pycache__
+app1/migrations/__pycache__
